@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class AlgoNLMS:
     def __init__(self):
         '''Initialises the algorithm.
@@ -15,7 +16,7 @@ class AlgoNLMS:
         
 
         '''
-        self.N = 1023
+        self.N = 2048
         '''
         
         N is the filter length. This is an integer that is recommended to vary between 512 - 2048 taps.
@@ -30,7 +31,7 @@ class AlgoNLMS:
         1023 is in-between, so this was chosen to balance latency and resolution.
         '''
         
-        self.stepSize = 0.4
+        self.stepSize = 0.3
         '''
         Step size is the rate of learning of the algorithm.
         It sets how aggressively the filter updates.
@@ -56,23 +57,30 @@ class AlgoNLMS:
         Recommended values: 0.5 - 0.7
         '''
 
-        self.halt = 1600
-        self.curHalt = 0
-        '''
-        This is how many samples to wait until continuing.
-        halt represents the baseline amount
-        curHalt represents how many samples to currently wait for
-
-        It is used in checkState in case of double talk
-        '''
-
         self.w = np.zeros(self.N)
         self.x = np.zeros(self.N)
 
         '''w(n) and x(n) are N x 1 arrays initialised to zero values, representing the filter and buffer'''
     
         self.fs = 1600 #placeholder for sample rate in Hz
-        self.nStep = 0 #time tracking variable for the generated signal
+        self.nStep = 0 #tie tracking variable for the generated signal
+
+
+        self.halt = 0.2 * self.fs
+        self.curHalt = 0
+        '''
+        This is how many samples to wait until continuing.
+        halt represents the baseline amount
+        halt = number of seconds * frequency
+
+        curHalt represents how many samples to currently wait for
+
+        It is used in checkState in case of double talk
+        '''
+        
+    
+
+
     def genSample(self):
         '''
         Generates a sample signal in real time for each time step.
