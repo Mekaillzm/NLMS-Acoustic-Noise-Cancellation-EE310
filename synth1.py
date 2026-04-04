@@ -4,6 +4,33 @@ import AlgoNLMS as algo
 
 aec = algo.AlgoNLMS()
 
+def read_flac_signal(file_path: str) -> tuple:
+    """
+    Reads a far-end signal from a .flac file, converts it to mono, 
+    and normalizes it.
+    
+    Parameters:
+    file_path (str): Path to the .flac file.
+    
+    Returns:
+    signal (np.ndarray): The normalized mono audio signal array.
+    fs (int): The sampling frequency of the audio file.
+    """
+    # Read the audio file
+    signal, fs = sf.read(file_path)
+    
+    # Convert to mono if the audio is stereo by averaging the channels
+    if len(signal.shape) > 1:
+        signal = np.mean(signal, axis=1)
+        
+    # Normalize to [-0.9, 0.9] to match your existing synthetic generators
+    # and provide headroom for echo and noise addition
+    max_val = np.max(np.abs(signal))
+    if max_val > 0:
+        signal = (signal / max_val) * 0.9
+        
+    return signal, fs
+
 def generate_synthetic_rir(N, decayRate=0.005):
         """
         Generates a synthetic exponentially decaying room impulse response.
