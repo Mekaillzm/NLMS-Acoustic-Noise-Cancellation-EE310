@@ -1,3 +1,7 @@
+NLMS Noise Cancellation Algorithm developed for EE-310, Signals and Systems Course
+
+Development still in progress - results may be incomplete
+
 Download clean_audio.flac, AlgoNLMS.py, synth1.py and both of the graph files in the same folder.
 Run the graph files to obtain desired graphs
 
