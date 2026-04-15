@@ -1,3 +1,5 @@
+The .zip files contain noisy audio, while the single .flac file is a clean, noise free sample for additional testing
+
 Credits:
 openslr.org/162/
 
