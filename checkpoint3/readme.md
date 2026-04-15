@@ -1,5 +1,7 @@
 Files for checkpoint 3
 
+Audio sample.wav: 16kHz, mono audio.
+
 ______________________________________________________________
 Credits:
 Clean sample from:  LibriSpeech ASR corpus, openslr.org
