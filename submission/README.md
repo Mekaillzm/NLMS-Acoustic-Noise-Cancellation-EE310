@@ -18,3 +18,19 @@ Phase 1, Convergence: Enable adaptation and remain silent. The echo should fade 
 Phase 2, Double-Talk: While the far-end is playing and the filter is converged, speak naturally into the microphone. Your voice should be audible at the output while the echo remains suppressed. If the echo returns during your speech, your Geigel detector is not working correctly. Speak at a natural volume.
 
 Phase 3, Path Change: While the system is converged, physically change the acoustic environment, that is, place a book in front of the speaker, rotate the laptop, or cover the microphone partially and then uncover it. You will hear a brief burst of residual echo as the old filter weights become invalid, followed by re-convergence to the new path. Be ready to explain why this happens and what property of NLMS allows recovery.
+
+
+CREDITS For Audio:
+Credits:
+
+Audio sample 1 from:https://openslr.org/162/
+  
+@misc{mudasiru_2025, 
+     title={{Multi-Speaker Separation and Background Speech Enhancement with Deep Learning}}, 
+     author={Mudasiru, Rasheed}, 
+     year={2025}, 
+     howpublished={Undergraduate Project Dataset}, 
+     institution={Federal University of Technology Minna}, 
+     license={MIT}, 
+     note={63-minute multi-speaker English conversation with background noise for speech processing research.} 
+} 
